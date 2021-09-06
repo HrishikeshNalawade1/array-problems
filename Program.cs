@@ -1,37 +1,36 @@
 ﻿using System;
 
-namespace array_prog
+namespace Delete_array
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[100];
-            int temp;
-            Console.WriteLine("Enter size of array");
+            int[] array = new int[100];
+            Console.WriteLine("Enter size of element");
             int s = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter {0} elements",s);
             for (int i = 0; i < s; i++)
             {
-                arr[i] = Convert.ToInt32(Console.ReadLine());
+                array[i] = Convert.ToInt32(Console.ReadLine());
             }
 
+            Console.WriteLine("Print elemnts");
             for (int i = 0; i < s; i++)
             {
-                for (int j = i+1; j < s; j++)
-                {
-                      if(arr[i]>arr[j])
-                    {
-                        temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
-                    }
-                }
+                Console.Write(array[i]);
             }
-            Console.WriteLine("ascending order");
+
+            Console.WriteLine("enter element you want to delete");
+            int del = Convert.ToInt32(Console.ReadLine());
+            for (int i = del-1; i <s; i++)
+            {
+                array[i] = array[i + 1];
+            }
+            s--;
+            Console.WriteLine("After deletion");
             for (int i = 0; i < s; i++)
             {
-                Console.WriteLine(arr[i]);
+                Console.WriteLine(array[i]);
             }
         }
     }
